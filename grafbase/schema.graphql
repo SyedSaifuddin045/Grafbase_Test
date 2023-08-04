@@ -19,6 +19,7 @@ type Post @model @search {
   likes: Int @default(value: 0)
   tags: [String] @length(max: 5)
   author: User
+  vote:[Votes]
 }
 
 type Comment @model @search {
@@ -26,6 +27,11 @@ type Comment @model @search {
   body: String!
   likes: Int @default(value: 0)
   author: User
+}
+
+type Votes @model{
+  post:Post
+  rating:Int!
 }
 
 type User @model {
